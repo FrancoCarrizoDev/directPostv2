@@ -1,0 +1,36 @@
+.cont-menu{
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .5s ease;
+}
+
+.cont-menu ul{
+    padding: 100px 0px 20px 0px;
+}
+
+.cont-menu ul li{
+    display: block;
+    cursor: pointer,
+}
+
+.active{
+    transform: translate(-600px);
+    color: black;
+}
+
+.opacity {
+    background-color: rgba(0,0,0,.5);
+    transition: all .5s ease;
+}
+
+
+
+#icono{
+    z-index: 9;
+    color: white;
+}
+
+
+

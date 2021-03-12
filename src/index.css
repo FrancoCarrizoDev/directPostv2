@@ -1,13 +1,59 @@
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 body {
   margin: 0;
+  /*
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+    */
+  font-family: "Open Sans";
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+
+
+  margin: 0px;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media only screen and(max-width: 768px) {
+  .bigHeight {
+      height: 36rem !important;
+  }
+}
+
+@media (max-width: 1400) {
+  .bigHeight {
+      height: 36rem !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .mobile {
+     min-width: 360px !important;
+  }
+}
+
+tbody.MuiTableBody-root >:nth-of-type(2n)
+{
+    background-color: rgb(219, 219, 219);
+}
+
+tbody.MuiTableBody-root > tr:hover {
+  background-color: #ffe8e8;
+}
+
+.css-11w94w9-MuiTableCell-root > div{
+  justify-content: center;
 }
