@@ -2,10 +2,10 @@ import React, { Component, useState, useEffect } from 'react';
 import MaterialTable from 'material-table';
 import axios from 'axios';
 
-/*const baseUrl="https://jsonplaceholder.typicode.com/posts";*/
 
 
-const data = [
+
+/*const data = [
   { id: 1, Fecha: "20/02/2021", Producto: "Parlante Sony XRG-302", Precio: "$420" },
   { id: 2, Fecha: "20/02/2021", Producto: "Auricular Sony SDA-2", Precio: "$20" },
   { id: 3, Fecha: "20/02/2021", Producto: "Monitor LG 24", Precio: "$670" },
@@ -26,32 +26,32 @@ const data = [
   { id: 18, Fecha: "20/02/2021", Producto: "Antena WIFI TpLink", Precio: "$40" },
   { id: 19, Fecha: "20/02/2021", Producto: "Switch Cisco XRG-302", Precio: "$300" },
   { id: 20, Fecha: "20/02/2021", Producto: "Cable HDMI ", Precio: "$25" },
-];
+];*/
 
 
-
+const baseUrl="https://jsonplaceholder.typicode.com/posts";
 const columnas =[
     {
-        title:'id',
-        field:'id',
+        title:'userId',
+        field:'userId',
     },
     {
-        title: 'Fecha',
-        field: 'Fecha'
+        title: 'id',
+        field: 'id'
     },
     {
-        title: 'Producto',
-        field: 'Producto'
+        title: 'Title',
+        field: 'title'
     },
     {
-        title: 'Precio',
-        field: 'Precio'
+        title: 'Body',
+        field: 'body'
     }
 ]
 
 
-function Datatable(props){
-    /*const [data, setData] = useState([]);
+export default function Datatable(){
+    const [data, setData] = useState([]);
 
     const petiticionGet= async() => {
         await axios.get(baseUrl)
@@ -62,13 +62,14 @@ function Datatable(props){
     
     useEffect(() => {
         petiticionGet();
-    }, []);*/
-
+    }, []);
     return(
-        <div className="w-full p-10 mx-auto z-0">
+        <div className="">
             <MaterialTable 
             columns={columnas}
             data={data}
+            pageSize={8}
+            pageSizeOptions={[8,16,24]}
             title="Productos Destacados"
             actions={[{
             icon: 'add',
@@ -93,10 +94,9 @@ function Datatable(props){
             localization={{
                 header: {actions: 'Acciones'}
             }}
+            size='small'
         />
         </div>
         
     )
 }
-
-export default Datatable;

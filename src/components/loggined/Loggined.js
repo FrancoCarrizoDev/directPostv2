@@ -1,9 +1,7 @@
 import React, { Component} from 'react';
 import './Loggined.css';
-import './navbar/NavBar.css';
-import NavBar from './navbar/NavBar';
-import Addplan from './app/addPlan/Addplan';
-import Datatable from '../datatable/Datatable';
+import './navbar/Main.css';
+import Main from './navbar/Main';
 class Loggined extends Component {
     constructor(props) {
         super(props);
@@ -13,13 +11,7 @@ class Loggined extends Component {
     }
     render() {
         return (
-            <div>
-                <NavBar email={this.props.email}></NavBar>
-                <div className="w-full flex flew-row h-screen mx-auto pt-3" style={{backgroundColor: '#f5f5f5'}} id="aca">
-                    {/*<Addplan/>*/}
-                    {/*<Datatable/>*/}
-                </div>
-            </div>
+                <Main></Main>
         );
 
     }

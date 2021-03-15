@@ -43,6 +43,7 @@ class Login extends Component {
             const element = (
             <Loggined email={this.state.login.email} password={this.state.login.pass}></Loggined>
         );
+            ReactDOM.unmountComponentAtNode(document.getElementById("root"))
             ReactDOM.render(element, document.getElementById("root"))
         },2000)
         

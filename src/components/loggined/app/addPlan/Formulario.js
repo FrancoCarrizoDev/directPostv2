@@ -9,10 +9,11 @@ const useStyles = makeStyles((theme) => ({
     root: {
         overflow: 'hidden',
         padding: theme.spacing(0, 3),
-        height: '80vh',
+        height: 'auto',
         width: '100%',
         flexFlow: 'wrap',
         paddingTop: '40px',
+        paddingBottom: '40px',
     },
     sepInputs:{
         display: 'flex',
@@ -34,9 +35,9 @@ const useStyles = makeStyles((theme) => ({
     center: {
         display: 'flex',
         flexDirection:'row',
-        gap: '30px',
-        justifyContent: 'center',
-        width: '80%'
+        gap: '20px',
+        width: '80%',
+        justifyContent: 'center'
         
     },
     formControlInputs: {
@@ -45,19 +46,12 @@ const useStyles = makeStyles((theme) => ({
     formControlSelect: {
         width: '80%'
     },
-
-    btns: {
-        height: '100%',
-        color: 'white'
-    },
-    btnAccept:{
-        color: 'blue',
-        backgroundColor: '#f5f5f5'
-    },
-    btnCancel: {
-        color: 'orange',
-        backgroundColor: '#f5f5f5'
+    textField: {
+        '& > *': {
+            width: '25ch',
+        },
     }
+
 
 }));
 
@@ -85,29 +79,25 @@ export default function Formulario() {
             <Grid className={classes.sepInputs} >
                 <Grid item >
                     <FormControl className={classes.formControlInputs}>
-                        <InputLabel htmlFor="idPlan">IdPlan</InputLabel>
-                        <Input id="idPlan" type="text" aria-describedby="idPlanHelper" />
+                        <TextField id="idPlan" label="Id Plan" variant="outlined" aria-describedby="idPlanHelper" size='small'/>
                         <FormHelperText id="idPlanHelper">Ingresar id del Plan</FormHelperText>
                     </FormControl>
                 </Grid>
                 <Grid item >
                     <FormControl className={classes.formControlInputs}>
-                        <InputLabel htmlFor="cuotas">Cuotas</InputLabel>
-                        <Input id="cuotas" type="text" aria-describedby="idCuotasHelper" />
+                        <TextField id="cuotas" label="Cuotas" variant="outlined" aria-describedby="idCuotasHelper" size='small'/>
                         <FormHelperText id="idCuotasHelper">Ingresar cuotas por Plan</FormHelperText>
                     </FormControl>
                 </Grid>
                 <Grid item >
                     <FormControl className={classes.formControlInputs}>
-                        <InputLabel htmlFor="plan">Plan</InputLabel>
-                        <Input id="plan" type="text" aria-describedby="planHelper" />
+                        <TextField id="plan" label="Plan" variant="outlined" aria-describedby="planHelper" size='small'/>
                         <FormHelperText id="planHelper">Ingresar nombre del plan</FormHelperText>
                     </FormControl>
                 </Grid>
                 <Grid item >
                     <FormControl className={classes.formControlInputs}>
-                        <InputLabel htmlFor="coeficiente">Coeficiente</InputLabel>
-                        <Input id="coeficiente" type="text" aria-describedby="coeficienteHelper" />
+                        <TextField id="coeficiente" label="Coeficiente" variant="outlined" aria-describedby="coeficienteHelper" size='small'/>
                         <FormHelperText id="coeficienteHelper">Ingresar coeficiente del plan</FormHelperText>
                     </FormControl>
                 </Grid>
@@ -158,14 +148,14 @@ export default function Formulario() {
                         <MenuItem value={30}>Conoce CBA</MenuItem>
                     </Select>
                 </FormControl>
-                <Grid item className={classes.center}>
+                <Grid item>
                     <Daterangepicker/>
                 </Grid>
                 <Grid item className={classes.center}>
-                    <Button variant="contained" className={classes.btns, classes.btnAccept}>
+                    <Button variant="contained" color="primary" >
                         Cargar
                     </Button>
-                    <Button variant="contained" className={classes.btns, classes.btnCancel}>
+                    <Button variant="contained" color="secondary" >
                         Cancelar
                     </Button>
                 </Grid>

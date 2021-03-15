@@ -10,9 +10,7 @@ class Addplan extends Component {
 
     render() {
         return (
-            <div className="p-10 w-full mx-auto">
-                    <Paper/>
-            </div>
+            <Paper/>
         )
     }
 }

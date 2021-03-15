@@ -10,11 +10,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
       gap:'10px',
   },
   sizeInput: {
-    width: '40%'
+    width: '38%'
   }
 }));
 
@@ -22,10 +22,16 @@ const useStyles = makeStyles((theme) => ({
 export default function MaterialUIPickers() {
   const classes = useStyles();
   // The first commit of Material-UI
-  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+  const [selectedDateFrom, setSelectedDateFrom] = React.useState(new Date());
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
+  const handleDateFromChange = (date) => {
+    setSelectedDateFrom(date);
+  };
+
+  const [selectedDateTo, setSelectedDateTo] = React.useState(new Date());
+
+  const handleDateChangeTo = (date) => {
+    setSelectedDateTo(date);
   };
 
   return (
@@ -33,28 +39,28 @@ export default function MaterialUIPickers() {
       <Grid container className={classes.root}>
         <KeyboardDatePicker
           margin="normal"
-          id="date-picker-dialog"
+          id="date-picker-from"
           label="Fecha desde"
           format="dd/MM/yyyy"
-          value={selectedDate}
-          onChange={handleDateChange}
+          minDate={Date()}
+          value={selectedDateFrom}
+          onChange={handleDateFromChange}
           KeyboardButtonProps={{
             'aria-label': 'change date',
           }}
-          size='small'
           className={classes.sizeInput}
         />
           <KeyboardDatePicker
           margin="normal"
-          id="date-picker-dialog"
+          id="date-picker-to"
           label="Fecha Hasta"
           format="dd/MM/yyyy"
-          value={selectedDate}
-          onChange={handleDateChange}
+          minDate={Date()}
+          value={selectedDateTo}
+          onChange={handleDateChangeTo}
           KeyboardButtonProps={{
             'aria-label': 'change date',
           }}
-          size='small'
           className={classes.sizeInput}
         />
       </Grid>
