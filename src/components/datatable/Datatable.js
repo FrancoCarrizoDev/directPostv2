@@ -8,6 +8,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import SearchIcon from '@material-ui/icons/Search';
+import AddIcon from '@material-ui/icons/Add';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const columns = [
   { id: 'name', label: 'Name', minWidth: 170 },
@@ -33,11 +37,20 @@ const columns = [
     align: 'right',
     format: (value) => value.toFixed(2),
   },
+  
+  {
+    id: 'actions',
+    label: 'Acciones',
+    minWidth: 200,
+    align: 'center',
+    format: (value) => value.toFixed(2),
+  },
 ];
 
 function createData(name, code, population, size) {
   const density = population / size;
-  return { name, code, population, size, density };
+  const actions =  <div><AddIcon className="mr-1"/><EditIcon className="mr-1"/><DeleteIcon/></div>
+  return { name, code, population, size, density, actions };
 }
 
 const rows = [

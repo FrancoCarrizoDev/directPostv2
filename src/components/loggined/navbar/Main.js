@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {fade,  makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -13,13 +13,19 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
-
+import HistoryIcon from '@material-ui/icons/History';
+import LinkIcon from '@material-ui/icons/Link';
+import PaymentIcon from '@material-ui/icons/Payment';
 import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
+import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
+import CallSplitIcon from '@material-ui/icons/CallSplit';
+import GroupWorkIcon from '@material-ui/icons/GroupWork';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -29,6 +35,9 @@ import DatatableProduct from '../../datatable/Datatable';
 import ReactDOM from 'react-dom';
 
 const drawerWidth = 240;
+
+const iconsArrayRow1 = [<BusinessCenterIcon/>,<AccountBalanceWalletIcon/>,<CallSplitIcon/>,<GroupWorkIcon/>]
+const iconsArrayRow2 = [<PaymentIcon/>,<LinkIcon/>,<HistoryIcon/>]
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -202,10 +211,10 @@ export default function ClippedDrawer() {
     
     const render = (event) => {
         switch (event.target.innerText){
-            case 'Agregar Plan':
+            case 'Planes':
                 renderAddPlan();
                 break;
-            case 'Detalle Producto':
+            case 'Productos':
                 renderDetailProduct();
                 break;
             default: console.log('Error en el switch');
@@ -234,7 +243,7 @@ export default function ClippedDrawer() {
                                 <SearchIcon />
                             </div>
                             <InputBase
-                                placeholder="Search…"
+                                placeholder="Buscar…"
                                 classes={{
                                     root: classes.inputRoot,
                                     input: classes.inputInput,
@@ -280,7 +289,7 @@ export default function ClippedDrawer() {
                 </AppBar>
                 {renderMobileMenu}
                 {renderMenu}
-                <Drawer
+                <Drawer id="drawer"
                     className={classes.drawer}
                     variant="permanent"
                     classes={{
@@ -290,22 +299,23 @@ export default function ClippedDrawer() {
                     <Toolbar />
                     <div className={classes.drawerContainer}>
                         <List>
-                            {['Agregar Plan', 'Detalle Producto', 'Send email', 'Drafts'].map((text, index) => (
+                            {['Productos', 'Planes', 'Reglas', 'Grupos'].map((text, index) => (
                                 <ListItem button key={text} onClick={(event) => render(event)} >
-                                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                                    <ListItemIcon>{iconsArrayRow1[index]}</ListItemIcon>
                                     <ListItemText primary={text} />
                                 </ListItem>
                             ))}
                         </List>
                         <Divider />
                         <List>
-                            {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                            {['Pago manual', 'Enlace de pago', 'Historial de pago'].map((text, index) => (
                                 <ListItem button key={text}>
-                                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                                    <ListItemIcon>{iconsArrayRow2[index]}</ListItemIcon>
                                     <ListItemText primary={text} />
                                 </ListItem>
                             ))}
                         </List>
+                        <Divider />
                     </div>
                 </Drawer>
                 <main className={classes.content} >
