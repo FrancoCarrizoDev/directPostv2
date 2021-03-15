@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, FormControl, FormHelperText, InputLabel, Input, Button, Grid, TextField, Select, MenuItem } from '@material-ui/core'
+import { FormControl, FormHelperText, InputLabel, Input, Button, Grid, TextField, Select, MenuItem } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import Daterangepicker from './Daterangepicker';
 
@@ -50,9 +50,7 @@ const useStyles = makeStyles((theme) => ({
         '& > *': {
             width: '25ch',
         },
-    }
-
-
+    },
 }));
 
 export default function Formulario() {
@@ -75,8 +73,10 @@ export default function Formulario() {
     }
 
     return (
+        <React.Fragment>
+        <Grid><div className="h-16 flex justify-start items-center" style={{backgroundColor: '#3f51b5', color: 'white'}}><h4 className="text-xl pl-6 font-400 font-normal">Alta de plan</h4></div></Grid>
         <Grid container spacing={1} className={classes.root}>
-            <Grid className={classes.sepInputs} >
+            <Grid className={classes.sepInputs} id="hola">
                 <Grid item >
                     <FormControl className={classes.formControlInputs}>
                         <TextField id="idPlan" label="Id Plan" variant="outlined" aria-describedby="idPlanHelper" size='small'/>
@@ -163,7 +163,7 @@ export default function Formulario() {
 
         </Grid>
 
-
+        </React.Fragment>
     );
 }
 

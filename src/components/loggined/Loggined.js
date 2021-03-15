@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import './Loggined.css';
-import './navbar/Main.css';
-import Main from './navbar/Main';
+import './main/Main.css';
+import Main from './main/Main';
 class Loggined extends Component {
     constructor(props) {
         super(props);

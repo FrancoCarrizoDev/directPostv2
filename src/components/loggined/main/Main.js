@@ -221,12 +221,10 @@ export default function ClippedDrawer() {
         }
     }
     const renderAddPlan = () => {
-        ReactDOM.unmountComponentAtNode(document.getElementById("main"));
         ReactDOM.render(<Addplan/>, document.getElementById("main"));
     }
 
     const renderDetailProduct = () => {
-        ReactDOM.unmountComponentAtNode(document.getElementById("main"));
         ReactDOM.render(<DatatableProduct/>, document.getElementById("main"));
     }
 
