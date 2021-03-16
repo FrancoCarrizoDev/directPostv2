@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/directPostv2/static/css/main.efd63eeb.chunk.css",
+    "main.js": "/directPostv2/static/js/main.bcde2a60.chunk.js",
+    "main.js.map": "/directPostv2/static/js/main.bcde2a60.chunk.js.map",
+    "runtime-main.js": "/directPostv2/static/js/runtime-main.118ce4c3.js",
+    "runtime-main.js.map": "/directPostv2/static/js/runtime-main.118ce4c3.js.map",
+    "static/js/2.6f4f0650.chunk.js": "/directPostv2/static/js/2.6f4f0650.chunk.js",
+    "static/js/2.6f4f0650.chunk.js.map": "/directPostv2/static/js/2.6f4f0650.chunk.js.map",
+    "static/js/3.9382acf2.chunk.js": "/directPostv2/static/js/3.9382acf2.chunk.js",
+    "static/js/3.9382acf2.chunk.js.map": "/directPostv2/static/js/3.9382acf2.chunk.js.map",
+    "index.html": "/directPostv2/index.html",
+    "static/css/main.efd63eeb.chunk.css.map": "/directPostv2/static/css/main.efd63eeb.chunk.css.map",
+    "static/js/2.6f4f0650.chunk.js.LICENSE.txt": "/directPostv2/static/js/2.6f4f0650.chunk.js.LICENSE.txt",
+    "static/media/404.27cba5f9.jpg": "/directPostv2/static/media/404.27cba5f9.jpg",
+    "static/media/maestro.bb96271c.svg": "/directPostv2/static/media/maestro.bb96271c.svg",
+    "static/media/mastercard.a4c61d54.svg": "/directPostv2/static/media/mastercard.a4c61d54.svg",
+    "static/media/naranja.3f921391.svg": "/directPostv2/static/media/naranja.3f921391.svg",
+    "static/media/visa.2e031688.svg": "/directPostv2/static/media/visa.2e031688.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.118ce4c3.js",
+    "static/js/2.6f4f0650.chunk.js",
+    "static/css/main.efd63eeb.chunk.css",
+    "static/js/main.bcde2a60.chunk.js"
+  ]
+}
