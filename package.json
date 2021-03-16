@@ -2,6 +2,7 @@
   "name": "material",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://francarrizo13.github.io/directPostv2",
   "dependencies": {
     "@craco/craco": "^6.1.1",
     "@emotion/react": "^11.1.5",
@@ -12,6 +13,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
+    "gh-pages": "^3.1.0",
     "material-table": "^1.69.2",
     "moment": "^2.29.1",
     "react": "^17.0.1",
@@ -23,6 +25,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
