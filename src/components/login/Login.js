@@ -42,8 +42,7 @@ class Login extends Component {
             input.style.cursor = "auto";
             const element = (
             <Loggined email={this.state.login.email} password={this.state.login.pass}></Loggined>
-        );
-            ReactDOM.unmountComponentAtNode(document.getElementById("root"))
+        );  
             ReactDOM.render(element, document.getElementById("root"))
         },2000)
         
@@ -64,8 +63,22 @@ class Login extends Component {
             login: login
         });
 
+        
+
         /*console.log(this.state);*/
         
+    }
+
+    componentDidMount() {
+        window.scrollTo(0, 36);
+        document.getElementById("inputUser").focus();
+
+    }
+
+    componentDidUpdate() {
+        if (this.state.login.email){
+            document.getElementById("inputPass").focus();
+        }
     }
 
 
@@ -82,7 +95,7 @@ class Login extends Component {
                         </div>
                         <form className="flex flex-col" onSubmit={this.goNext}>
                             <label className="text-left text-xs mb-1 2xl:text-sm" id="EmailId">Email o ID de Cliente</label>
-                            <input className="focus:border-blue-200 focus:ring-1 focus:ring-blue-200 focus:outline-none w-full text-base text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-4" type="text" placeholder="" ref={this.emailRef} />
+                            <input className="focus:border-blue-200 focus:ring-1 focus:ring-blue-200 focus:outline-none w-full text-base text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-4" type="text" placeholder="" ref={this.emailRef} id="inputUser"/>
                             <button className="w-full hover:bg-blue-800 group flex items-center rounded-md bg-blue-900 text-white text-sm font-medium px-3 py-3 mt-14 transition duration-500 h-12" type="submit">
                                 <span className="w-full text-center text-white text-base font-semibold" >Continuar</span>
                             </button>
@@ -105,7 +118,7 @@ class Login extends Component {
                         <form className="flex flex-col transition duration-500" onSubmit={this.processing} >
                             <span className="hidden"></span>
                             <label className="text-left text-xs mb-1 2xl:text-sm" id="EmailId">Contraseña</label>
-                            <input name="pass" className="focus:border-blue-200 focus:ring-1 focus:ring-blue-200 focus:outline-none w-full text-base text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-4" type="password" placeholder="" ref={this.passwordRef} />
+                            <input name="pass" className="focus:border-blue-200 focus:ring-1 focus:ring-blue-200 focus:outline-none w-full text-base text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-4" type="password" placeholder="" ref={this.passwordRef} id="inputPass"/>
                             <button className="w-full hover:bg-blue-800 group flex items-center rounded-md bg-blue-900 text-white transition duration-500 text-sm font-medium px-3 py-3 mt-14 transition duration-500 h-12" type="submit" id="btnIngresar">
                                 <span className="w-full text-center text-white text-base font-semibold text-sm transition duration-500" id="cargando">{this.state.cargando ? <Loading/> : "Ingresar"}</span>
                             </button>

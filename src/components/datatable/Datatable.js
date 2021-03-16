@@ -11,8 +11,7 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import SearchIcon from '@material-ui/icons/Search';
-import AddIcon from '@material-ui/icons/Add';
+
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import visaIcon from '../../assets/img/visa.svg';
@@ -22,6 +21,8 @@ import naranjaIcon from '../../assets/img/naranja.svg';
 import prismaIcon from '../../assets/img/prisma.png';
 import CheckIcon from '@material-ui/icons/Check';
 
+import ReactDOM from 'react-dom';
+import AddPlan from '../loggined/app/addPlan/Addplan'
 import './Datatable.css'
 
 const jsonEjemplo = [{ "Planes": [{ "ID": 40, "idMedioPago": 4, "coeficiente": 1.0200, "instatments": "1", "cuotas": 1, "nombre": "1 cuota", "fechaAlta": "2020-11-12T00:00:00", "fechaDesde": "2020-11-12T00:00:00", "activo": 1 }, { "ID": 41, "idMedioPago": 2, "coeficiente": 1.1000, "instatments": "11", "cuotas": 1, "nombre": "Plan Z", "fechaAlta": "2020-11-12T00:00:00", "fechaDesde": "2020-11-11T00:00:00", "activo": 1 }, { "ID": 42, "idMedioPago": 1, "coeficiente": 1.0300, "instatments": "1", "cuotas": 1, "nombre": "1 cuota", "fechaAlta": "2020-11-12T00:00:00", "fechaDesde": "2020-11-12T00:00:00", "activo": 1 }, { "ID": 43, "idMedioPago": 1, "coeficiente": 1.2000, "instatments": "3", "cuotas": 3, "nombre": "3 cuotas", "fechaAlta": "2020-11-12T00:00:00", "fechaDesde": "2020-11-12T00:00:00", "activo": 1 }, { "ID": 44, "idMedioPago": 1, "coeficiente": 1.1200, "instatments": "16", "cuotas": 6, "nombre": "Ahora 6", "fechaAlta": "2020-11-12T00:00:00", "fechaDesde": "2020-11-12T00:00:00", "activo": 1 }, { "ID": 45, "idMedioPago": 3, "coeficiente": 1.0300, "instatments": "1", "cuotas": 1, "nombre": "1 cuota", "fechaAlta": "2020-11-12T00:00:00", "fechaDesde": "2020-11-12T00:00:00", "activo": 1 }, { "ID": 46, "idMedioPago": 3, "coeficiente": 1.2000, "instatments": "3", "cuotas": 3, "nombre": "3 cuotas", "fechaAlta": "2020-11-12T00:00:00", "fechaDesde": "2020-11-12T00:00:00", "activo": 1 }, { "ID": 47, "idMedioPago": 3, "coeficiente": 1.1200, "instatments": "16", "cuotas": 6, "nombre": "Ahora 6", "fechaAlta": "2020-11-12T00:00:00", "fechaDesde": "2020-11-12T00:00:00", "activo": 1 }, { "ID": 48, "idMedioPago": 3, "coeficiente": 1.2200, "instatments": "7", "cuotas": 12, "nombre": "Ahora 12", "fechaAlta": "2020-11-12T00:00:00", "fechaDesde": "2020-11-12T00:00:00", "activo": 1 }, { "ID": 49, "idMedioPago": 3, "coeficiente": 1.2900, "instatments": "8", "cuotas": 18, "nombre": "Ahora 18", "fechaAlta": "2020-11-12T00:00:00", "fechaDesde": "2020-11-12T00:00:00", "activo": 1 }, { "ID": 50, "idMedioPago": 5, "coeficiente": 1.0200, "instatments": "1", "cuotas": 1, "nombre": "1 cuota", "fechaAlta": "2020-11-12T00:00:00", "fechaDesde": "2020-11-12T00:00:00", "activo": 1 }, { "ID": 51, "idMedioPago": 6, "coeficiente": 1.0200, "instatments": "1", "cuotas": 1, "nombre": "1 cuota", "fechaAlta": "2020-11-12T00:00:00", "fechaDesde": "2020-11-12T00:00:00", "activo": 1 }, { "ID": 63, "idMedioPago": 1, "coeficiente": 1.2200, "instatments": "7", "cuotas": 12, "nombre": "AHORA 12", "fechaAlta": "2021-03-01T00:00:00", "fechaDesde": "2021-03-01T00:00:00", "fechaHasta": "2021-03-31T00:00:00", "activo": 1 }, { "ID": 64, "idMedioPago": 1, "coeficiente": 1.2900, "instatments": "8", "cuotas": 18, "nombre": "AHORA 18", "fechaAlta": "2021-03-01T00:00:00", "fechaDesde": "2021-03-01T00:00:00", "fechaHasta": "2021-03-31T00:00:00", "activo": 1 }, { "ID": 65, "idMedioPago": 2, "coeficiente": 1.1600, "instatments": "6", "cuotas": 6, "nombre": "6 cuotas", "fechaAlta": "2021-03-03T00:00:00", "fechaDesde": "2021-03-01T00:00:00", "fechaHasta": "2021-03-31T00:00:00", "activo": 1 }], "MediosPago": [{ "Id": 1, "idPaymethod": "1", "nombre": "Visa Credito", "activo": 1, "idPasarela": 1, "TipoMedioPago": "Credito", "logo": "https:\/\/repostatic.blob.core.windows.net\/static\/MOTOR\/img\/tc\/logo_visa.png" }, { "Id": 2, "idPaymethod": "24", "nombre": "Naranja", "activo": 1, "idPasarela": 1, "TipoMedioPago": "Credito", "logo": "https:\/\/repostatic.blob.core.windows.net\/static\/MOTOR\/img\/tc\/logo_naranja.png" }, { "Id": 3, "idPaymethod": "104", "nombre": "MasterCard Credito", "activo": 1, "idPasarela": 1, "TipoMedioPago": "Credito", "logo": "https:\/\/repostatic.blob.core.windows.net\/static\/MOTOR\/img\/tc\/logo_mastercard.png" }, { "Id": 4, "idPaymethod": "31", "nombre": "Visa Debito", "activo": 1, "idPasarela": 1, "TipoMedioPago": "Debito", "logo": "https:\/\/repostatic.blob.core.windows.net\/static\/MOTOR\/img\/tc\/logo_visa_debito.png" }, { "Id": 5, "idPaymethod": "105", "nombre": "MasterCard Debito", "activo": 1, "idPasarela": 1, "TipoMedioPago": "Debito", "logo": "https:\/\/repostatic.blob.core.windows.net\/static\/MOTOR\/img\/tc\/logo_mastercard_debito.png" }, { "Id": 6, "idPaymethod": "106", "nombre": "Maestro", "activo": 1, "idPasarela": 1, "TipoMedioPago": "Debito", "logo": "https:\/\/repostatic.blob.core.windows.net\/static\/MOTOR\/img\/tc\/maestro.png" }, { "Id": 7, "idPaymethod": "65", "nombre": "American Express", "activo": 1, "idPasarela": 1, "TipoMedioPago": "Credito", "logo": "https:\/\/repostatic.blob.core.windows.net\/static\/MOTOR\/img\/tc\/American-Express-Logo.png" }, { "Id": 8, "idPaymethod": "63", "nombre": "Cabal", "activo": 1, "idPasarela": 1, "TipoMedioPago": "Credito", "logo": "https:\/\/repostatic.blob.core.windows.net\/static\/MOTOR\/img\/tc\/cabal.png" }, { "Id": 11, "idPaymethod": "1", "nombre": "Cordobesa Visa", "activo": 1, "idPasarela": 1, "TipoMedioPago": "Credito", "logo": "https:\/\/repostatic.blob.core.windows.net\/static\/MOTOR\/img\/tc\/logo_bancor.png" }, { "Id": 12, "idPaymethod": "104", "nombre": "Cordobesa MasterCard", "activo": 1, "idPasarela": 1, "TipoMedioPago": "Credito", "logo": "https:\/\/repostatic.blob.core.windows.net\/static\/MOTOR\/img\/tc\/logo_bancor.png" }] }]
@@ -170,6 +171,10 @@ const useStyles = makeStyles({
   }
 });
 
+const handleClickBtnPlan = () => {
+  ReactDOM.render(<AddPlan/>, document.getElementById("main"));
+}
+
 export default function StickyHeadTable() {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
@@ -192,6 +197,7 @@ export default function StickyHeadTable() {
           color="primary"
           className={classes.button}
           startIcon={<AddCircleOutlineIcon></AddCircleOutlineIcon>}
+          onClick={handleClickBtnPlan}
         >
           PLAN
         </Button>

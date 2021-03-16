@@ -2,8 +2,8 @@ import React from 'react';
 import { FormControl, FormHelperText, InputLabel, Input, Button, Grid, TextField, Select, MenuItem } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import Daterangepicker from './Daterangepicker';
-
-
+import DatatablePlanes from '../../../datatable/Datatable';
+import ReactDOM from 'react-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -72,6 +72,10 @@ export default function Formulario() {
         setValueClient(event.target.value);
     }
 
+    const handleClickBtnCancell = () => {
+        ReactDOM.render(<DatatablePlanes/>, document.getElementById("main"));
+    }
+
     return (
         <React.Fragment>
         <Grid><div className="h-16 flex justify-start items-center" style={{backgroundColor: '#3f51b5', color: 'white'}}><h4 className="text-xl pl-6 font-400 font-normal">Alta de plan</h4></div></Grid>
@@ -79,7 +83,7 @@ export default function Formulario() {
             <Grid className={classes.sepInputs} id="hola">
                 <Grid item >
                     <FormControl className={classes.formControlInputs}>
-                        <TextField id="idPlan" label="Id Plan" variant="outlined" aria-describedby="idPlanHelper" size='small'/>
+                        <TextField  id="idPlan" label="Id Plan" variant="outlined" aria-describedby="idPlanHelper" size='small'/>
                         <FormHelperText id="idPlanHelper">Ingresar id del Plan</FormHelperText>
                     </FormControl>
                 </Grid>
@@ -155,7 +159,7 @@ export default function Formulario() {
                     <Button variant="contained" color="primary" >
                         Cargar
                     </Button>
-                    <Button variant="contained" color="secondary" >
+                    <Button variant="contained" color="secondary" onClick={handleClickBtnCancell}>
                         Cancelar
                     </Button>
                 </Grid>

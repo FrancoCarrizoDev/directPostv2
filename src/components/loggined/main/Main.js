@@ -31,12 +31,12 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Addplan from '../app/addPlan/Addplan'
-import DatatableProduct from '../../datatable/Datatable';
+import DatatablePlan from '../../datatable/Datatable';
 import ReactDOM from 'react-dom';
 
 const drawerWidth = 240;
 
-const iconsArrayRow1 = [<BusinessCenterIcon/>,<AccountBalanceWalletIcon/>,<CallSplitIcon/>,<GroupWorkIcon/>]
+const iconsArrayRow1 = [<BusinessCenterIcon/>,<AccountBalanceWalletIcon/>,<CallSplitIcon/>]
 const iconsArrayRow2 = [<PaymentIcon/>,<LinkIcon/>,<HistoryIcon/>]
 
 const useStyles = makeStyles((theme) => ({
@@ -221,11 +221,16 @@ export default function ClippedDrawer() {
         }
     }
     const renderAddPlan = () => {
-        ReactDOM.render(<Addplan/>, document.getElementById("main"));
+        ReactDOM.render(<DatatablePlan/>, document.getElementById("main"));
     }
 
     const renderDetailProduct = () => {
-        ReactDOM.render(<DatatableProduct/>, document.getElementById("main"));
+        ReactDOM.render(<DatatablePlan/>, document.getElementById("main"));
+    }
+
+    const handleClickMenuIcon = () => {
+        var drawer = document.querySelector("#drawer");
+        drawer.classList.toggle("abrirMenu")
     }
 
     return (
@@ -233,8 +238,9 @@ export default function ClippedDrawer() {
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
                     <Toolbar className={classes.minHeightNavBar}>
+                        <MenuIcon id="iconMenu" onClick={handleClickMenuIcon}/>
                         <Typography className={classes.title} variant="h6" noWrap id="logo">
-                            DIRECPOST
+                            DirectPOS
                         </Typography>
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>
@@ -297,7 +303,7 @@ export default function ClippedDrawer() {
                     <Toolbar />
                     <div className={classes.drawerContainer}>
                         <List>
-                            {['Productos', 'Planes', 'Reglas', 'Grupos'].map((text, index) => (
+                            {['Productos', 'Planes', 'Reglas'].map((text, index) => (
                                 <ListItem button key={text} onClick={(event) => render(event)} >
                                     <ListItemIcon>{iconsArrayRow1[index]}</ListItemIcon>
                                     <ListItemText primary={text} />
@@ -318,7 +324,7 @@ export default function ClippedDrawer() {
                 </Drawer>
                 <main className={classes.content} >
                     <Toolbar />
-                    <div id="main"></div>
+                    <div id="main"><DatatablePlan/></div>
                 </main>
         </div>
     );

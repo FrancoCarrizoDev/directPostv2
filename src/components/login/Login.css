@@ -10,3 +10,23 @@
 #bigHeight2{
     height: 46rem;
 }
+
+@media(max-width:1400px){
+    #bigHeight2{
+        height: 40rem;
+    }
+    #bigHeight{
+        height: 40rem;
+    }
+}
+
+@media(max-width: 516px){
+    .makeStyles-root-17{
+        flex-direction: column !important;
+        gap:30px;
+    }
+    .makeStyles-center-20{
+        justify-content: flex-start;
+        width: 100%;
+    }
+}
