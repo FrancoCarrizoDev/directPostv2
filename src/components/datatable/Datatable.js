@@ -9,11 +9,12 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import Button from '@material-ui/core/Button';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import SearchIcon from '@material-ui/icons/Search';
 import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-
 import visaIcon from '../../assets/img/visa.svg';
 import masterIcon from '../../assets/img/mastercard.svg';
 import maestroIcon from '../../assets/img/maestro.svg';
@@ -78,7 +79,7 @@ function createDataTable(estado, pasarela, medioPago, tipoPago, cuotas, fechaAlt
 
   fechaAlta = moment(fechaAlta).format("DD/MM/yyyy")
   const vigencia = moment(fechaDesde).format("DD/MM/yyyy") + ' - ' + (fechaHasta != 'NO DEFINIDO' ? moment(fechaHasta).format("DD/MM/yyyy") : 'NO DEFINIDO');
-  const actions = <div><AddIcon className="mr-3" style={{cursor:'pointer'}}/><EditIcon className="mr-3" style={{cursor:'pointer'}}/><DeleteIcon style={{cursor:'pointer'}}/></div>
+  const actions = <div><EditIcon className="mr-3" style={{cursor:'pointer'}}/><DeleteIcon style={{cursor:'pointer'}}/></div>
   return { estado, pasarela, medioPago, tipoPago, cuotas, fechaAlta, vigencia, coeficiente, actions };
 }
 
@@ -184,49 +185,61 @@ export default function StickyHeadTable() {
   };
 
   return (
-    <Paper className={classes.root} id="paperMain">
-      <TableContainer className={classes.container}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead >
-            <TableRow >
-              {columns.map((column) => (
-                <TableCell className={classes.bgHeader}
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody >
-            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-              return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.code} >
-                  {columns.map((column) => {
-                    const value = row[column.id];
-                    return (
-                      <TableCell key={column.id} align={column.align} style={{padding: 0, fontFamily:'Open Sans'}}>
-                        {column.format && typeof value === 'number' ? column.format(value) : value}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onChangePage={handleChangePage}
-        onChangeRowsPerPage={handleChangeRowsPerPage}
-      />
-    </Paper>
+    <React.Fragment>
+      <div className="flex justify-end pb-5">
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.button}
+          startIcon={<AddCircleOutlineIcon></AddCircleOutlineIcon>}
+        >
+          PLAN
+        </Button>
+      </div>
+      <Paper className={classes.root} id="paperMain">
+        <TableContainer className={classes.container}>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead >
+              <TableRow >
+                {columns.map((column) => (
+                  <TableCell className={classes.bgHeader}
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth }}
+                  >
+                    {column.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody >
+              {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                return (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code} >
+                    {columns.map((column) => {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id} align={column.align} style={{padding: 0, fontFamily:'Open Sans'}}>
+                          {column.format && typeof value === 'number' ? column.format(value) : value}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[10, 25, 100]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onChangePage={handleChangePage}
+          onChangeRowsPerPage={handleChangeRowsPerPage}
+        />
+      </Paper>
+    </React.Fragment>
   );
 }
