@@ -13,8 +13,6 @@ class Router extends Component{
                     <Route exact path="/" component={Home}></Route>
                     <Route exact path="/home" component={Home}></Route>
                     <Route exact path="/welcome" component={Loggined} ></Route>
-                    <Route component={Error} ></Route>
-
                 </Switch>
 
             </BrowserRouter>
